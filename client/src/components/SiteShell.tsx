@@ -3,6 +3,7 @@
  */
 import { Brand } from "@/components/Brand";
 import { Button } from "@/components/ui/button";
+import { useDashboardOverlay } from "@/contexts/DashboardOverlayContext";
 import { Menu, X, ArrowUpRight, MapPinned, ShieldCheck, Instagram, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
@@ -18,6 +19,7 @@ const links = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
+  const { openDashboard } = useDashboardOverlay();
   const close = () => setOpen(false);
 
   return (
@@ -32,6 +34,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
+          <button onClick={() => openDashboard("client")} className="nav-link">Painel</button>
           <Link href="/login" className="nav-link">Entrar</Link>
           <Link href="/cadastro"><Button className="button-signal px-5">Cadastrar-se <ArrowUpRight className="ml-1.5 h-4 w-4" /></Button></Link>
         </div>
@@ -46,6 +49,7 @@ export function SiteHeader() {
             <div className="mt-3 grid grid-cols-2 gap-3">
               <Link onClick={close} href="/login"><Button variant="outline" className="w-full border-[#252724]/20">Entrar</Button></Link>
               <Link onClick={close} href="/cadastro"><Button className="button-signal w-full">Cadastrar-se</Button></Link>
+              <Button onClick={() => { close(); openDashboard("client"); }} variant="outline" className="col-span-2 border-[#252724]/20">Abrir painel</Button>
             </div>
           </nav>
         </div>
@@ -55,6 +59,7 @@ export function SiteHeader() {
 }
 
 export function SiteFooter() {
+  const { openDashboard } = useDashboardOverlay();
   return (
     <footer className="bg-[#252724] text-white">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-14 md:grid-cols-[1.25fr_1fr_1fr] md:px-8">
@@ -66,7 +71,7 @@ export function SiteFooter() {
         <div>
           <p className="footer-label">PLATAFORMA</p>
           <div className="mt-4 flex flex-col gap-3 text-sm text-white/70">
-            <Link href="/maquinas">Encontrar máquinas</Link><Link href="/prestadores">Para prestadores</Link><Link href="/sobre">Como funciona</Link><Link href="/dashboard/prestador">Área do prestador</Link>
+            <Link href="/maquinas">Encontrar máquinas</Link><Link href="/prestadores">Para prestadores</Link><Link href="/sobre">Como funciona</Link><button onClick={() => openDashboard("provider")} className="w-fit text-left">Área do prestador</button>
           </div>
         </div>
         <div>

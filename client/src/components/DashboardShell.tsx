@@ -17,8 +17,10 @@ import {
   Tractor,
   UserRound,
   WalletCards,
+  X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { useDashboardOverlay } from "@/contexts/DashboardOverlayContext";
 import { Link, useLocation } from "wouter";
 
 type NavItem = { label: string; icon: LucideIcon; href: string };
@@ -43,15 +45,20 @@ const clientNav: NavItem[] = [
 ];
 
 export function DashboardShell({ audience, children }: { audience: "provider" | "client"; children: React.ReactNode }) {
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
+  const { isDashboardOpen, closeDashboard } = useDashboardOverlay();
   const isProvider = audience === "provider";
   const nav = isProvider ? providerNav : clientNav;
   const name = isProvider ? "Terramax Operações" : "Lucas Ferreira";
   const initials = isProvider ? "TO" : "LF";
+  const closePanel = () => {
+    if (isDashboardOpen) closeDashboard();
+    else setLocation("/");
+  };
 
   return (
-    <div className="relative isolate z-[100] min-h-screen overflow-x-hidden bg-[#F3F1EB] text-[#252724]">
-      <aside className="fixed inset-y-0 left-0 z-[120] hidden w-[264px] flex-col bg-[#252724] px-5 py-6 text-white lg:flex">
+    <div role="dialog" aria-modal="true" aria-label={`Dashboard ${isProvider ? "do prestador" : "do cliente"}`} className="fixed inset-0 isolate z-[9999] overflow-x-hidden overflow-y-auto bg-[#F3F1EB] text-[#252724]">
+      <aside className="fixed inset-y-0 left-0 z-[30] hidden w-[264px] flex-col bg-[#252724] px-5 py-6 text-white lg:flex">
         <Brand inverse />
         <div className="mt-9">
           <p className="sidebar-label">{isProvider ? "ÁREA DO PRESTADOR" : "ÁREA DO CLIENTE"}</p>
@@ -60,6 +67,7 @@ export function DashboardShell({ audience, children }: { audience: "provider" | 
               <Link
                 key={`${label}-${index}`}
                 href={href}
+                onClick={() => { if (isDashboardOpen) closeDashboard(); }}
                 className={`sidebar-link ${(index === 0 && location.startsWith("/dashboard")) ? "sidebar-link-active" : ""}`}
               >
                 <Icon className="h-[18px] w-[18px]" />
@@ -69,7 +77,7 @@ export function DashboardShell({ audience, children }: { audience: "provider" | 
           </nav>
         </div>
         <div className="mt-auto border-t border-white/10 pt-5">
-          <Link href={isProvider ? "/prestadores" : "/"} className="sidebar-link">
+          <Link onClick={closePanel} href={isProvider ? "/prestadores" : "/"} className="sidebar-link">
             <ChevronLeft className="h-[18px] w-[18px]" />
             Voltar ao marketplace
           </Link>
@@ -86,8 +94,8 @@ export function DashboardShell({ audience, children }: { audience: "provider" | 
         </div>
       </aside>
 
-      <div className="relative z-[101] min-h-screen bg-[#F3F1EB] lg:pl-[264px]">
-        <header className="sticky top-0 z-[110] flex h-[76px] items-center justify-between border-b border-black/5 bg-[#F3F1EB] px-5 md:px-8">
+      <div className="relative z-10 min-h-screen bg-[#F3F1EB] lg:pl-[264px]">
+        <header className="sticky top-0 z-20 flex h-[76px] items-center justify-between border-b border-black/5 bg-[#F3F1EB] px-5 md:px-8">
           <div className="lg:hidden"><Brand compact /></div>
           <div className="hidden lg:block">
             <p className="section-eyebrow">PAINEL DE OPERAÇÃO</p>
@@ -96,6 +104,10 @@ export function DashboardShell({ audience, children }: { audience: "provider" | 
             </p>
           </div>
           <div className="flex items-center gap-3">
+            <button onClick={closePanel} className="inline-flex items-center gap-2 border border-[#D6D2C8] bg-[#FCFBF8] px-3 py-2 text-xs font-bold text-[#55564F] transition hover:border-[#B88700] hover:text-[#252724]" aria-label="Fechar dashboard">
+              <X className="h-4 w-4" />
+              <span className="hidden sm:inline">Fechar painel</span>
+            </button>
             <button className="relative rounded-full border border-[#D6D2C8] bg-[#FCFBF8] p-2.5" aria-label="Notificações">
               <Bell className="h-4 w-4" />
               <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-[#F4B400]" />
@@ -106,7 +118,7 @@ export function DashboardShell({ audience, children }: { audience: "provider" | 
             </Link>
           </div>
         </header>
-        <main className="relative z-[102] bg-[#F3F1EB] px-5 py-7 md:px-8 md:py-9">{children}</main>
+        <main className="relative z-10 bg-[#F3F1EB] px-5 py-7 md:px-8 md:py-9">{children}</main>
       </div>
     </div>
   );
