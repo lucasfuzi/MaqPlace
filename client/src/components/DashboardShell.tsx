@@ -57,7 +57,7 @@ export function DashboardShell({ audience, children }: { audience: "provider" | 
   };
 
   return (
-    <div role="dialog" aria-modal="true" aria-label={`Dashboard ${isProvider ? "do prestador" : "do cliente"}`} className="fixed inset-0 isolate z-[9999] overflow-x-hidden overflow-y-auto bg-[#F3F1EB] text-[#252724]">
+    <div className="relative z-10 min-h-full bg-[#F3F1EB] text-[#252724]">
       <aside className="fixed inset-y-0 left-0 z-[30] hidden w-[264px] flex-col bg-[#252724] px-5 py-6 text-white lg:flex">
         <Brand inverse />
         <div className="mt-9">
