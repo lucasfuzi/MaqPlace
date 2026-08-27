@@ -1,49 +1,11 @@
+/**
+ * Sinal de Concreto: rota não encontrada como uma placa de desvio clara, com retorno imediato à plataforma.
+ */
+import { Brand } from "@/components/Brand";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
-import { useLocation } from "wouter";
+import { ArrowLeft, Construction } from "lucide-react";
+import { Link } from "wouter";
 
 export default function NotFound() {
-  const [, setLocation] = useLocation();
-
-  const handleGoHome = () => {
-    setLocation("/");
-  };
-
-  return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
-            </div>
-          </div>
-
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
-
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
-            Page Not Found
-          </h2>
-
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
-            <br />
-            It may have been moved or deleted.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
+  return <main className="grid min-h-screen place-items-center bg-[#252724] p-5 text-white"><div className="max-w-md text-center"><Brand inverse /><div className="my-10 flex justify-center"><span className="grid h-20 w-20 place-items-center border border-[#F4B400] bg-white/5"><Construction className="h-9 w-9 text-[#F4B400]" /></span></div><p className="section-eyebrow">ROTA FORA DO MAPA</p><h1 className="mt-3 font-display text-6xl font-bold uppercase leading-[0.85]">Este trecho não está disponível.</h1><p className="mt-6 text-sm leading-6 text-white/65">A página que você procurou não foi encontrada. Retorne ao marketplace para continuar sua busca.</p><Link href="/"><Button className="button-signal mt-8 h-12"><ArrowLeft className="mr-2 h-4 w-4" />Voltar ao início</Button></Link></div></main>;
 }

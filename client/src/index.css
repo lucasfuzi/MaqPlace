@@ -1,3 +1,4 @@
+/* Sinal de Concreto: modernismo construtivo, wayfinding industrial e amarelo de segurança para ações. */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -43,135 +44,38 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --primary: oklch(0.78 0.16 84); --primary-foreground: oklch(0.18 0.01 80);
+  --sidebar-primary: oklch(0.78 0.16 84); --sidebar-primary-foreground: oklch(0.18 0.01 80);
+  --chart-1: oklch(0.78 0.16 84); --chart-2: oklch(0.56 0.08 150); --chart-3: oklch(0.49 0.04 95); --chart-4: oklch(0.65 0.1 47); --chart-5: oklch(0.38 0.02 90);
+  --radius: 0.3rem; --background: oklch(0.97 0.005 86); --foreground: oklch(0.23 0.012 110); --card: oklch(0.99 0.003 85); --card-foreground: oklch(0.23 0.012 110); --popover: oklch(0.99 0.003 85); --popover-foreground: oklch(0.23 0.012 110); --secondary: oklch(0.93 0.008 88); --secondary-foreground: oklch(0.34 0.012 110); --muted: oklch(0.94 0.006 85); --muted-foreground: oklch(0.49 0.01 110); --accent: oklch(0.93 0.008 88); --accent-foreground: oklch(0.23 0.012 110); --destructive: oklch(0.55 0.18 29); --destructive-foreground: oklch(0.985 0 0); --border: oklch(0.89 0.007 85); --input: oklch(0.89 0.007 85); --ring: oklch(0.78 0.16 84); --sidebar: oklch(0.23 0.012 110); --sidebar-foreground: oklch(0.94 0.004 85); --sidebar-accent: oklch(0.31 0.014 110); --sidebar-accent-foreground: oklch(0.98 0.002 85); --sidebar-border: oklch(1 0 0 / 10%); --sidebar-ring: oklch(0.78 0.16 84);
 }
 
-.dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
-}
+.dark { --primary: oklch(0.78 0.16 84); --primary-foreground: oklch(0.18 0.01 80); --background: oklch(0.23 0.012 110); --foreground: oklch(0.94 0.004 85); --card: oklch(0.31 0.014 110); --card-foreground: oklch(0.94 0.004 85); --popover: oklch(0.31 0.014 110); --popover-foreground: oklch(0.94 0.004 85); --secondary: oklch(0.36 0.014 110); --secondary-foreground: oklch(0.8 0.006 85); --muted: oklch(0.36 0.014 110); --muted-foreground: oklch(0.7 0.008 85); --accent: oklch(0.36 0.014 110); --accent-foreground: oklch(0.94 0.004 85); --destructive: oklch(0.65 0.18 29); --destructive-foreground: oklch(0.985 0 0); --border: oklch(1 0 0 / 10%); --input: oklch(1 0 0 / 15%); --ring: oklch(0.78 0.16 84); --chart-1: oklch(0.78 0.16 84); --chart-2: oklch(0.56 0.08 150); --chart-3: oklch(0.65 0.1 47); --chart-4: oklch(0.8 0.1 100); --chart-5: oklch(0.7 0.03 110); --sidebar: oklch(0.23 0.012 110); --sidebar-foreground: oklch(0.94 0.004 85); --sidebar-accent: oklch(0.36 0.014 110); --sidebar-accent-foreground: oklch(0.98 0.002 85); --sidebar-border: oklch(1 0 0 / 10%); --sidebar-ring: oklch(0.78 0.16 84); }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
-  }
+  * { @apply border-border outline-ring/50; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground; font-family: "Manrope", sans-serif; text-rendering: optimizeLegibility; }
+  h1, h2, h3, h4, .font-display { font-family: "Barlow Condensed", sans-serif; }
+  ::selection { background: #F4B400; color: #252724; }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), [type="button"]:not(:disabled), [type="submit"]:not(:disabled), [type="reset"]:not(:disabled), a[href], select:not(:disabled), input[type="checkbox"]:not(:disabled), input[type="radio"]:not(:disabled) { @apply cursor-pointer; }
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
-  .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
-    padding-right: 1rem;
-  }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
-  @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
-      padding-right: 1.5rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem; /* 32px - desktop padding */
-      padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
-    }
-  }
+  .container { width: 100%; margin-inline: auto; padding-inline: 1rem; } .flex { min-height: 0; min-width: 0; }
+  .section-eyebrow { @apply inline-flex items-center gap-2 text-[0.68rem] font-extrabold tracking-[0.18em] text-[#9A7200] before:h-[2px] before:w-5 before:bg-[#F4B400] before:content-['']; }
+  .technical-tag { @apply inline-flex w-fit items-center border-l-2 border-[#F4B400] bg-[#EEEAE0] px-2 py-1 text-[0.64rem] font-extrabold uppercase tracking-[0.11em] text-[#5E5F59]; }
+  .button-signal { @apply rounded-sm bg-[#F4B400] font-bold text-[#252724] shadow-[0_7px_0_#A87900] transition duration-150 hover:bg-[#FFD14A] hover:shadow-[0_5px_0_#A87900] active:translate-y-[3px] active:scale-[0.97] active:shadow-[0_2px_0_#A87900]; }
+  .button-dark { @apply rounded-sm bg-[#252724] font-bold text-white shadow-[0_5px_0_#10110F] transition duration-150 hover:bg-[#40423D] active:translate-y-[2px] active:scale-[0.97] active:shadow-[0_2px_0_#10110F]; }
+  .nav-link { @apply text-sm font-semibold text-[#55564F] transition hover:text-[#252724]; } .nav-link-active { @apply text-[#252724] after:mt-1 after:block after:h-0.5 after:w-full after:bg-[#F4B400]; }
+  .card-machine { @apply relative border border-[#E5E1D8] bg-[#FCFBF8] shadow-[0_12px_28px_rgba(34,36,32,0.05)] transition duration-200 after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-11 after:bg-[#F4B400] after:transition-[width] hover:-translate-y-1 hover:border-[#C7B988] hover:shadow-[0_17px_34px_rgba(34,36,32,0.12)] hover:after:w-full; }
+  .status-available, .status-pending, .status-unavailable { @apply rounded-full px-2.5 py-1 text-[0.64rem] font-extrabold uppercase tracking-[0.09em]; }.status-available { @apply bg-[#E9F5E7] text-[#377143]; }.status-pending { @apply bg-[#FFF1C6] text-[#936400]; }.status-unavailable { @apply bg-white/85 text-[#74756E]; }
+  .avatar-initials { @apply inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#E7E2D4] text-[0.61rem] font-extrabold text-[#5C5D55]; }
+  .form-label { @apply flex flex-col gap-1.5 text-sm font-semibold text-[#454640]; }.form-control { @apply w-full rounded-sm border border-[#D7D2C8] bg-white px-3 py-2.5 text-sm font-medium text-[#252724] outline-none transition placeholder:text-[#9A9A92] focus:border-[#C58F00] focus:ring-2 focus:ring-[#F4B400]/25; }
+  .footer-label, .sidebar-label { @apply text-[0.63rem] font-extrabold tracking-[0.18em] text-[#F4B400]; }.footer-social { @apply inline-flex h-8 w-8 items-center justify-center border border-white/15 text-white/75 transition hover:border-[#F4B400] hover:text-[#F4B400]; }
+  .sidebar-link { @apply flex items-center gap-3 rounded-sm px-3 py-2.5 text-sm font-semibold text-white/60 transition hover:bg-white/10 hover:text-white; }.sidebar-link-active { @apply bg-[#F4B400] text-[#252724] hover:bg-[#F4B400] hover:text-[#252724]; }
+  .metric-card { @apply relative overflow-hidden border border-[#E5E1D8] bg-[#FCFBF8] p-5 shadow-[0_8px_24px_rgba(34,36,32,0.04)] before:absolute before:left-0 before:top-0 before:h-[3px] before:w-10 before:bg-[#F4B400]; }
 }
+
+@media (min-width: 640px) { .container { padding-inline: 1.5rem; } } @media (min-width: 1024px) { .container { max-width: 1280px; padding-inline: 2rem; } }
+@media (prefers-reduced-motion: no-preference) { .reveal-up { animation: revealUp .55s cubic-bezier(.23,1,.32,1) both; } @keyframes revealUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } } }
