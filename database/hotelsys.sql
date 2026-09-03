@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS hotelsys CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE hotelsys;
+
+CREATE TABLE usuarios (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(120) NOT NULL, email VARCHAR(150) UNIQUE NOT NULL, senha VARCHAR(255) NOT NULL, perfil ENUM('admin','recepcao') DEFAULT 'recepcao', criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE hospedes (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(120) NOT NULL, documento VARCHAR(30) NOT NULL, email VARCHAR(150), telefone VARCHAR(30), cidade VARCHAR(80), criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE quartos (id INT AUTO_INCREMENT PRIMARY KEY, numero VARCHAR(10) UNIQUE NOT NULL, tipo VARCHAR(60) NOT NULL, capacidade TINYINT DEFAULT 2, diaria DECIMAL(10,2) NOT NULL, status ENUM('disponivel','ocupado','manutencao') DEFAULT 'disponivel');
+CREATE TABLE reservas (id INT AUTO_INCREMENT PRIMARY KEY, codigo VARCHAR(20) UNIQUE NOT NULL, hospede_id INT NOT NULL, quarto_id INT NOT NULL, check_in DATE NOT NULL, check_out DATE NOT NULL, valor DECIMAL(10,2) DEFAULT 0, status ENUM('pendente','confirmada','hospedado','finalizada','cancelada') DEFAULT 'pendente', observacoes TEXT, criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (hospede_id) REFERENCES hospedes(id), FOREIGN KEY (quarto_id) REFERENCES quartos(id));
+CREATE TABLE hospedagens (id INT AUTO_INCREMENT PRIMARY KEY, reserva_id INT NOT NULL, realizado_checkin DATETIME NOT NULL, realizado_checkout DATETIME NULL, observacoes TEXT, FOREIGN KEY (reserva_id) REFERENCES reservas(id));
+
+INSERT INTO usuarios (nome,email,senha,perfil) VALUES ('Administrador','admin@senai.br', '$2b$12$bkuDtYjkcf3lnuyfQkBc/.EFzl7Wmwr0yHgPQP4jEybkZw4qjNO32', 'admin');
+-- Senha do usuário acima: 123456. Gere uma nova senha em produção.
+INSERT INTO hospedes (nome,documento,email,telefone,cidade) VALUES ('Mariana Costa','482.190.321-00','mariana@email.com','11999990001','São Paulo'),('Rafael Mendes','109.327.654-00','rafael@email.com','19999990002','Campinas'),('Camila Nunes','771.028.443-00','camila@email.com','81999990003','Recife'),('Eduardo Lima','334.620.118-00','eduardo@email.com','31999990004','Belo Horizonte');
+INSERT INTO quartos (numero,tipo,capacidade,diaria,status) VALUES ('101','Standard Casal',2,340,'ocupado'),('102','Standard Twin',2,320,'disponivel'),('103','Standard Casal',2,340,'disponivel'),('104','Standard Twin',2,320,'manutencao'),('201','Luxo Casal',2,490,'ocupado'),('202','Luxo Twin',2,465,'disponivel'),('204','Suíte Executiva',3,620,'ocupado'),('301','Suíte Master',4,890,'disponivel');
+INSERT INTO reservas (codigo,hospede_id,quarto_id,check_in,check_out,valor,status) VALUES ('RSV-2409',1,204,'2026-09-03','2026-09-06',1240,'confirmada'),('RSV-2410',2,101,'2026-09-03','2026-09-05',680,'hospedado'),('RSV-2411',3,201,'2026-09-04','2026-09-07',930,'confirmada'),('RSV-2412',4,202,'2026-09-05','2026-09-08',720,'pendente');
